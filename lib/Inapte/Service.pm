@@ -13,6 +13,7 @@ package Inapte::Service;
 #md_
 
 use Exclus::Exclus;
+use Module::Runtime qw(use_module);
 use Moo;
 use namespace::clean;
 
@@ -29,10 +30,25 @@ has '+description' => (default => sub { "Le µs de l'application" });
 #md_## Les méthodes
 #md_
 
+#md_### _create_job()
+#md_
+sub _create_job {
+    my ($self, $type, $origin, $priority) = @_;
+    my $class = use_module("Inapte::Jobs::$type");
+    my $job = $class->new(runner => $self, type => $type, origin => $origin, priority => $priority);
+    $self->broker->publish('job.insert', $job->priority, $job->unbless);
+}
+
 #md_### on_message()
 #md_
 sub on_message {
     my ($self, $type, $message) = @_;
+    if ($type =~ m!^job\.create\.Inapte\.(.+)$!) {
+        $self->_create_job($1, $message->sender->{name}, $message->priority);
+    }
+    else {
+        $self->logger->unexpected_error(type => $type);
+    }
 }
 
 #md_### on_starting()
