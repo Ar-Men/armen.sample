@@ -39,7 +39,12 @@ sub run {
                 },
                 test_05 => {
                     application => 'Inapte',
-                    type => 'Test::05'
+                    type => 'Test::05',
+                    next_step => 'test_06'
+                },
+                test_06 => {
+                    application => 'Inapte',
+                    type => 'Test::06'
                 }
             }
         }

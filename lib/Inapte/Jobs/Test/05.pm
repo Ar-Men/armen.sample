@@ -18,5 +18,12 @@ use namespace::clean;
 
 extends qw(Inapte::Job);
 
+#md_## Les méthodes
+#md_
+
+#md_### run()
+#md_
+sub run {}
+
 1;
 __END__

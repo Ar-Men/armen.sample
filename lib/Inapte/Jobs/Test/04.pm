@@ -18,5 +18,15 @@ use namespace::clean;
 
 extends qw(Inapte::Job);
 
+#md_## Les méthodes
+#md_
+
+#md_### run()
+#md_
+sub run {
+    my ($self) = @_;
+    $self->next_step_label('test_06');
+}
+
 1;
 __END__
