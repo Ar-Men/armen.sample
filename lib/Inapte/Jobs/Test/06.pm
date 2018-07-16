@@ -17,13 +17,18 @@ use Moo;
 use namespace::clean;
 
 extends qw(Inapte::Job);
+with qw(Gadget::Jobs::Role::Events);
 
 #md_## Les méthodes
 #md_
 
-#md_### run()
+#md_### on_events()
 #md_
-sub run {}
+sub on_events {
+    my ($self) = @_;
+    $self->on('__start', sub { return 'end' });
+    $self->on('end',     sub { return       });
+}
 
 1;
 __END__
