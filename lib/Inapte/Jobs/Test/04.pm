@@ -14,9 +14,18 @@ package Inapte::Jobs::Test::04;
 
 use Exclus::Exclus;
 use Moo;
+use Types::Standard qw(Str);
+use Gadget::Jobs::Attributes;
 use namespace::clean;
 
 extends qw(Inapte::Job);
+
+#md_## Les attributs
+#md_
+
+#md_### _next_label
+#md_
+public '_next_label' => ('ro', Str, 'test_06');
 
 #md_## Les méthodes
 #md_
@@ -25,7 +34,7 @@ extends qw(Inapte::Job);
 #md_
 sub run {
     my ($self) = @_;
-    $self->next_step_label('test_06');
+    $self->next_step_label($self->_next_label);
 }
 
 1;
