@@ -9,7 +9,7 @@
 
 package Inapte::Service;
 
-#md_# Blocus::Service
+#md_# Inapte::Service
 #md_
 
 use Exclus::Exclus;
