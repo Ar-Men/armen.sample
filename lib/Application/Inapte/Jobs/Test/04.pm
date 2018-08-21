@@ -7,9 +7,9 @@
 ##
 ####### Ecosystème basé sur les microservices ##################### (c) 2018 losyme ####### @(°_°)@
 
-package Inapte::Jobs::Test::04;
+package Application::Inapte::Jobs::Test::04;
 
-#md_# Inapte::Jobs::Test::04
+#md_# Application::Inapte::Jobs::Test::04
 #md_
 
 use Exclus::Exclus;
@@ -18,7 +18,7 @@ use Types::Standard qw(Str);
 use Gadget::Jobs::Attributes;
 use namespace::clean;
 
-extends qw(Inapte::Job);
+extends qw(Application::Inapte::Job);
 
 #md_## Les attributs
 #md_

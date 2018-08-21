@@ -7,16 +7,16 @@
 ##
 ####### Ecosystème basé sur les microservices ##################### (c) 2018 losyme ####### @(°_°)@
 
-package Inapte::Jobs::Test::03;
+package Application::Inapte::Jobs::Test::03;
 
-#md_# Inapte::Jobs::Test::03
+#md_# Application::Inapte::Jobs::Test::03
 #md_
 
 use Exclus::Exclus;
 use Moo;
 use namespace::clean;
 
-extends qw(Inapte::Job);
+extends qw(Application::Inapte::Job);
 
 #md_## Les méthodes
 #md_

@@ -34,7 +34,7 @@ has '+description' => (default => sub { "Le µs de l'application" });
 #md_
 sub _create_job {
     my ($self, $type, $origin, $priority) = @_;
-    my $class = use_module("Inapte::Jobs::$type");
+    my $class = use_module("Application::Inapte::Jobs::$type");
     my $job = $class->new(runner => $self, type => $type, origin => $origin, priority => $priority);
     $self->broker->publish('job.insert', $job->priority, $job->unbless);
 }
