@@ -14,7 +14,7 @@ package Application::Inapte::Jobs::Test::04;
 
 use Exclus::Exclus;
 use Moo;
-use Types::Standard qw(Str);
+use Types::Standard -types;
 use Gadget::Jobs::Attributes;
 use namespace::clean;
 
