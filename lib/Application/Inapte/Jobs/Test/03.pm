@@ -25,7 +25,7 @@ extends qw(Application::Inapte::Job);
 #md_
 sub run {
     my ($self) = @_;
-    $self->runner->broker->try_publish(
+    $self->runner->broker->publish(
         'workflow.insert',
         'NONE',
         {
